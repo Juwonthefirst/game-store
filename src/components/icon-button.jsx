@@ -16,3 +16,5 @@ const IconButton = ({className, iconName, onClick}) => {
         </button>
     )
 }
+
+export default IconButton

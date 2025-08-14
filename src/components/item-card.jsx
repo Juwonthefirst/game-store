@@ -4,20 +4,21 @@ import IconButton from "./icon-button.jsx";
 const ItemCard = ({ videoUrls, name, genre, description }) => {
 	const [videoUrlId, setVideoUrlId] = useState(0);
 	return (
-		<div className="relative">
+		<div className="relative h-80 outline-0">
 			<IconButton
-			    className="absolute left-2 text-accent"
+				className="absolute left-0 top-1/2 text-accent p-2 z-[1]"
 				iconName={"prev"}
 				onClick={() => setVideoUrlId(Math.max(0, videoUrlId - 1))}
 			/>
-			<video
-				className="object-cover "
+			<img
+				className="object-cover w-full h-full"
 				src={videoUrls[videoUrlId]}
-				autoplay
-				mute
-				playsinline
+				autoPlay={true}
+				muted
+				playsInline={true}
 			/>
 			<IconButton
+				className="absolute right-0 top-1/2 text-accent p-2 z-[1]"
 				iconName={"next"}
 				onClick={() =>
 					setVideoUrlId(
@@ -25,10 +26,10 @@ const ItemCard = ({ videoUrls, name, genre, description }) => {
 					)
 				}
 			/>
-			<div className="absolute left-0 flex flex-col gap-2">
-				<h2>{itemName}</h2>
-				<p>{itemGenre}</p>
-				<p>{description}</p>
+			<div className="absolute left-0 bottom-0 p-4 h-3/5">
+				<h2 className="text-2xl">{name}</h2>
+				<p className="bg-accent p-1.5 rounded-xl inline">{genre}</p>
+				<p className="">{description}</p>
 			</div>
 		</div>
 	);
