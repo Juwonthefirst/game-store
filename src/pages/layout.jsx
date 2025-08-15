@@ -8,7 +8,7 @@ const Layout = () => {
 			<main className="h-auto overflow-auto">
 				<Outlet />
 			</main>
-			<nav className="px-8 py-2 flex justify-between fixed bottom-0 w-full text-accent bg-black z-10 text-xs border-t border-accent">
+			<nav className="h-16 px-8 py-2 flex justify-between items-center fixed bottom-0 w-full text- bg-black z-10 text-xs border-t border-accent">
 				<Link className="flex flex-col gap-1" to="/home">
 					<ArrowLeft />
 					<p>Home</p>
