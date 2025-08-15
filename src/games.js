@@ -4,7 +4,7 @@ export default [
 		name: "Fallout",
 		genre: "Survival",
 		description:
-			" here we go again writing random shit that isn't needed but is still weirdly part of my job, this contains so many typos this fucking sucks",
+			" here we go again writing random shit that isn't needed but is still weirdly part of my job, this contains so many typos this fucking sucks c,mvmcmfzkfxvkfkxogfkzfikfIrsotgkxitdot,kfUdzck,hdxfj vkzurdf",
 	},
 	{
 	    id:1,

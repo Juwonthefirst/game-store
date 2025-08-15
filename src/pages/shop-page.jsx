@@ -12,7 +12,7 @@ const mockUrl = [
 
 const ShopPage = () => {
 	return (
-		<div className="flex flex-col gap-8">
+		<div className="flex flex-col gap-20">
 			{games.map((game) => (
 				<ItemCard key={game.id} videoUrls={mockUrl} {...game} />
 			))}
