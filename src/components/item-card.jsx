@@ -16,30 +16,32 @@ const PriceTag = ({ price, onAddToCart }) => {
 	};
 
 	return (
-		<div className="bg-neutral-800 rounded-b-4xl px-4 py-2 grid grid-cols-3 grid-rows-2 gap-y-0">
-			<p className="text-xl col-span-">${price * quantity}</p>
-			<div className="flex gap-2 row-start-2 col-span-2">
-				<button
-					className="p-2 text-xl rounded-full bg-accent/10 border border-accent"
-					onClick={onSubstractQuantity}
-				>
-					-
-				</button>
-				<input
-					className="px-2 py-1 w-1/2 focus:border-2 focus:bg-accent/10 border-accent outline-0 rounded-lg text-center"
-					type="number"
-					onChange={onInputChange}
-					value={quantity}
-					range={900}
-				/>
-				<button
-					className="p-2 text-xl rounded-full bg-accent/10 border border-accent"
-					onClick={onAddQuantity}
-				>
-					+
-				</button>
+		<div className="bg-neutral-800 rounded-b-4xl px-4 py-2 flex">
+			<div className="flex flex-col gap-2">
+				<p className="text-xl">${price * quantity}</p>
+				<div className="flex gap-2">
+					<button
+						className="p-1.5 rounded-full bg-accent/10 border border-accent"
+						onClick={onSubstractQuantity}
+					>
+						-
+					</button>
+					<input
+						className="px-2 py-1 w-1/3 focus:border-2 focus:bg-accent/10 border-accent outline-0 rounded-lg text-center"
+						type="number"
+						onChange={onInputChange}
+						value={quantity}
+						range={900}
+					/>
+					<button
+						className="p-1.5 rounded-full bg-accent/10 border border-accent"
+						onClick={onAddQuantity}
+					>
+						+
+					</button>
+				</div>
 			</div>
-			<IconButton className="col-end-5" iconName={"next"} />
+			<IconButton className="" iconName={"next"} />
 		</div>
 	);
 };
