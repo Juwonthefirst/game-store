@@ -17,7 +17,7 @@ const PriceTag = ({ price, onAddToCart }) => {
 
 	return (
 		<div className="bg-neutral-800 rounded-b-4xl px-5 py-2 flex items-center">
-			<p className="text-xl font-medium pr-8">${price * quantity}</p>
+			<p className="text-xl font-medium">${price * quantity}</p>
 			<div className="flex gap-2">
 				<button
 					className="p-1.5 rounded-full bg-accent/10 border border-accent"
@@ -38,24 +38,24 @@ const PriceTag = ({ price, onAddToCart }) => {
 					+
 				</button>
 			</div>
-			<IconButton className="inline" iconName={"next"} />
+			<IconButton className="" iconName={"next"} />
 		</div>
 	);
 };
 
-const ItemCard = ({ videoUrls, name, genre, description }) => {
-	const [videoUrlId, setVideoUrlId] = useState(0);
+const ItemCard = ({ name, short_screenshots }) => {
+	const [imageUrlId, setImageUrlId] = useState(0);
 	return (
 		<div>
-			<div className="relative group h-80 overflow-hidden bg-black/50">
+			<div className="relative group h-80 overflow-hidden bg-black/30">
 				<IconButton
 					className="absolute left-0 top-1/3 text-accent p-2 z-[1]"
 					iconName={"prev"}
-					onClick={() => setVideoUrlId(Math.max(0, videoUrlId - 1))}
+					onClick={() => setImageUrlId(Math.max(0, imageUrlId - 1))}
 				/>
-				<video
+				<img
 					className="absolute object-cover w-full h-full z-[-1]"
-					src={videoUrls[videoUrlId]}
+					src={short_screenshots[imageUrlId].image}
 					autoPlay
 					muted
 					playsInline
@@ -65,8 +65,11 @@ const ItemCard = ({ videoUrls, name, genre, description }) => {
 					className="absolute right-0 top-1/3 text-accent p-2 z-[1]"
 					iconName={"next"}
 					onClick={() =>
-						setVideoUrlId(
-							Math.min(videoUrls.length - 1, videoUrlId + 1)
+						setImageUrlId(
+							Math.min(
+								short_screenshots.length - 1,
+								imageUrlId + 1
+							)
 						)
 					}
 				/>
@@ -77,7 +80,7 @@ const ItemCard = ({ videoUrls, name, genre, description }) => {
 						{genre}
 					</p>
 				*/}
-					<p className="line-clamp-3 text-xs/5">{description}</p>
+					{/*<p className="line-clamp-3 text-xs/5">{description}</p>*/}
 				</div>
 			</div>
 			<PriceTag price={300} onAddToCart={() => {}} />
