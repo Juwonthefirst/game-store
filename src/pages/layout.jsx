@@ -4,8 +4,8 @@ import NavBar from "../components/navbar.jsx";
 const Layout = () => {
 	return (
 		<>
-			<header className="h-12 border border-accent mb-12"></header>
-			<main className="h-auto overflow-auto">
+			<header className="h-12 pb-12"></header>
+			<main className="h-[565px] overflow-auto">
 				<Outlet />
 			</main>
 			<NavBar />

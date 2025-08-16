@@ -16,32 +16,29 @@ const PriceTag = ({ price, onAddToCart }) => {
 	};
 
 	return (
-		<div className="bg-neutral-800 rounded-b-4xl px-4 py-2 flex">
-			<div className="flex flex-col gap-2">
-				<p className="text-xl">${price * quantity}</p>
-				<div className="flex gap-2">
-					<button
-						className="p-1.5 rounded-full bg-accent/10 border border-accent"
-						onClick={onSubstractQuantity}
-					>
-						-
-					</button>
-					<input
-						className="px-2 py-1 w-1/3 focus:border-2 focus:bg-accent/10 border-accent outline-0 rounded-lg text-center"
-						type="number"
-						onChange={onInputChange}
-						value={quantity}
-						range={900}
-					/>
-					<button
-						className="p-1.5 rounded-full bg-accent/10 border border-accent"
-						onClick={onAddQuantity}
-					>
-						+
-					</button>
-				</div>
+		<div className="bg-neutral-800 rounded-b-4xl px-5 py-2 flex items-center">
+			<p className="text-xl font-medium pr-8">${price * quantity}</p>
+			<div className="flex gap-2">
+				<button
+					className="p-1.5 rounded-full bg-accent/10 border border-accent"
+					onClick={onSubstractQuantity}
+				>
+					-
+				</button>
+				<input
+					className="px-2 py-1 w-1/3 focus:border-2 focus:bg-accent/10 border-accent outline-0 rounded-lg text-center"
+					type="number"
+					onChange={onInputChange}
+					value={quantity}
+				/>
+				<button
+					className="p-1.5 rounded-full bg-accent/10 border border-accent"
+					onClick={onAddQuantity}
+				>
+					+
+				</button>
 			</div>
-			<IconButton className="" iconName={"next"} />
+			<IconButton className="inline" iconName={"next"} />
 		</div>
 	);
 };
@@ -56,7 +53,7 @@ const ItemCard = ({ videoUrls, name, genre, description }) => {
 					iconName={"prev"}
 					onClick={() => setVideoUrlId(Math.max(0, videoUrlId - 1))}
 				/>
-				<img
+				<video
 					className="absolute object-cover w-full h-full z-[-1]"
 					src={videoUrls[videoUrlId]}
 					autoPlay
