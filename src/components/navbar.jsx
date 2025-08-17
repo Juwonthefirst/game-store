@@ -1,4 +1,4 @@
-import { ArrowLeft } from "lucide-react";
+import { ShoppingCart, Home, Store } from "lucide-react";
 import { Link } from "react-router";
 import { useState } from "react";
 
@@ -8,15 +8,15 @@ const NavBar = () => {
 	return (
 		<nav className="h-16 px-8 py-2 flex justify-between items-center bg-black z-10 text-xs">
 			<Link className={className} to="/">
-				<ArrowLeft />
+				<Home />
 				<p>Home</p>
 			</Link>
 			<Link className={className} to="/shop">
-				<ArrowLeft />
+				<Store />
 				<p>Shop</p>
 			</Link>
 			<Link className={className} to="/home">
-				<ArrowLeft />
+				<ShoppingCart />
 				<p>Cart</p>
 			</Link>
 		</nav>

@@ -1,8 +1,9 @@
 class GameStore {
 	#games;
+	#checkout;
 	constructor() {
 		this.#games = {};
-		this.checkout = [];
+		this.#checkout = [];
 	}
 
 	addGames(games) {
@@ -10,9 +11,12 @@ class GameStore {
 			this.#games[game.id] = game;
 		}
 	}
-	
-	get games(){
-	    return Object.values(this.#games)
+
+	get games() {
+		return Object.values(this.#games);
+	}
+	get checkout() {
+		return this.#checkout.map((gameId) => this.#games[gameId]);
 	}
 
 	addToCheckout(gameId) {

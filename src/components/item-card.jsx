@@ -1,10 +1,28 @@
 import { useState } from "react";
 import IconButton from "./icon-button.jsx";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faApple } from "@fortawesome/free-brands-svg-icons";
+import { faPlaystation } from "@fortawesome/free-brands-svg-icons";
+import { faXbox } from "@fortawesome/free-brands-svg-icons";
+import { faAndroid } from "@fortawesome/free-brands-svg-icons";
+import { faWindows } from "@fortawesome/free-brands-svg-icons";
+import { faLinux } from "@fortawesome/free-brands-svg-icons";
+import nintendoIcon from "../assets/icons/nintendo.svg";
 
-const PriceTag = ({ price, onAddToCart }) => {
+const platformIconMap = {
+	PC: faWindows,
+	Linux: faLinux,
+	Xbox: faXbox,
+	Android: faAndroid,
+	PlayStation: faPlaystation,
+	"Apple Macintosh": faApple,
+};
+
+const PriceTag = ({ price }) => {
 	const [quantity, setQuantity] = useState(1);
 	const onAddQuantity = () => {
-		setQuantity(quantity + 1);
+		if (quantity >= 999) return;
+		setQuantity(Math.min(quantity + 1));
 	};
 
 	const onSubstractQuantity = () => {
@@ -12,13 +30,17 @@ const PriceTag = ({ price, onAddToCart }) => {
 	};
 
 	const onInputChange = (event) => {
-		setQuantity(Math.floor(event.target.value));
+		const newQuantity = event.target.value;
+		if (newQuantity > 999) return setQuantity(999);
+		setQuantity(Math.floor(newQuantity));
 	};
 
 	return (
-		<div className="bg-neutral-800 rounded-b-4xl px-5 py-2 flex items-center">
-			<p className="text-xl font-medium">${price * quantity}</p>
-			<div className="flex gap-2">
+		<div className="bg-neutral-800 rounded-b-4xl px-6 py-2 flex items-center justify-evenly">
+			<p className="text-xl font-medium">
+				${(price * quantity).toFixed(2)}
+			</p>
+			<div className="flex gap-2 mr-[-96px]">
 				<button
 					className="p-1.5 rounded-full bg-accent/10 border border-accent"
 					onClick={onSubstractQuantity}
@@ -26,7 +48,7 @@ const PriceTag = ({ price, onAddToCart }) => {
 					-
 				</button>
 				<input
-					className="px-2 py-1 w-1/3 focus:border-2 focus:bg-accent/10 border-accent outline-0 rounded-lg text-center"
+					className="px-2 py-1 w-1/5 focus:border-2 focus:bg-accent/10 border-accent outline-0 rounded-lg text-center"
 					type="number"
 					onChange={onInputChange}
 					value={quantity}
@@ -38,16 +60,19 @@ const PriceTag = ({ price, onAddToCart }) => {
 					+
 				</button>
 			</div>
-			<IconButton className="" iconName={"next"} />
+			<IconButton
+				className="text border border-accent rounded-full p-2 bg-accent/10"
+				iconName={"cart"}
+			/>
 		</div>
 	);
 };
 
-const ItemCard = ({ name, short_screenshots }) => {
+const ItemCard = ({ name, short_screenshots, parent_platforms, price }) => {
 	const [imageUrlId, setImageUrlId] = useState(0);
 	return (
 		<div>
-			<div className="relative group h-80 overflow-hidden bg-black/30">
+			<div className="relative group h-80 overflow-hidden bg-black/40">
 				<IconButton
 					className="absolute left-0 top-1/3 text-accent p-2 z-[1]"
 					iconName={"prev"}
@@ -74,16 +99,24 @@ const ItemCard = ({ name, short_screenshots }) => {
 					}
 				/>
 				<div className=" absolute left-0 bottom-0 pl-10 pb-2 w-2/3">
-					<h2 className="text-2xl font-poppins-bold mb-4">{name}</h2>
-					{/*
-					<p className="border-1 border-accent bg-accent w-fit p-1 rounded-xl text-sm mb-4">
-						{genre}
-					</p>
-				*/}
+					<h2 className="text-2xl font-poppins-bold mb-1.5">
+						{name}
+					</h2>
+
+					<div className="flex mb-4 items-center gap-1">
+						{parent_platforms.map((platform) => {
+							if (platform.platform.name === "Nintendo")
+								return <img src={nintendoIcon} />;
+							const icon =
+								platformIconMap[platform.platform.name];
+							return <FontAwesomeIcon icon={icon} />;
+						})}
+					</div>
+
 					{/*<p className="line-clamp-3 text-xs/5">{description}</p>*/}
 				</div>
 			</div>
-			<PriceTag price={300} onAddToCart={() => {}} />
+			<PriceTag price={price} />
 		</div>
 	);
 };

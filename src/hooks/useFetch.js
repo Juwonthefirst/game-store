@@ -11,6 +11,7 @@ const useFetch = (url) => {
 		let newResponse = { ...response };
 		const controller = new AbortController();
 		const signal = controller.signal;
+
 		(async () => {
 			try {
 				const response = await fetch(url, { signal });
@@ -21,6 +22,7 @@ const useFetch = (url) => {
 				newResponse.error = { error: error.message };
 			} finally {
 				newResponse.isLoading = false;
+				alert(JSON.stringify(newResponse));
 				setResponse(newResponse);
 			}
 		})();
@@ -29,7 +31,6 @@ const useFetch = (url) => {
 			controller.abort();
 		};
 	}, [url]);
-
 	return response;
 };
 

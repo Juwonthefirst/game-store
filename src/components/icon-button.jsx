@@ -1,11 +1,13 @@
 import {
     ChevronLeft,
-    ChevronRight
+    ChevronRight,
+    ShoppingCart
 } from 'lucide-react'
 
 const icons = {
     next: ChevronRight,
     prev: ChevronLeft,
+    cart: ShoppingCart
 }
 
 const IconButton = ({className, iconName, onClick}) => {
