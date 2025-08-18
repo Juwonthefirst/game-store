@@ -5,7 +5,7 @@ const Layout = () => {
 	return (
 		<>
 			<header className="h-12 pb-12"></header>
-			<main className="h-[565px] overflow-auto">
+			<main className="h-[570px] overflow-auto">
 				<Outlet />
 			</main>
 			<NavBar />

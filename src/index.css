@@ -27,6 +27,7 @@
 	--font-poppins-extrabold: "Poppins-extrabold";
 	--font-poppins-bold: "Poppins-bold";
 	--color-accent: var(--color-blue-600);
+	--color-accent: var(--color-white);
 }
 
 body {

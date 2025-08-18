@@ -4,7 +4,13 @@ import { useEffect } from "react";
 
 const ShopPage = () => {
 	const gamestore = useGameStore();
-
+    useEffect(() => {
+        window.addEventListener("scroll", (event) => {
+            
+        })
+        
+        return () => window.removeEventListener("scroll")
+    }, [])
 	return (
 		<div className="flex flex-col gap-20">
 			{gamestore.games.map((game) => {
