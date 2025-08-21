@@ -21,13 +21,49 @@
 	font-style: normal;
 	font-display: swap;
 }
+@font-face {
+	font-family: "Poppins-medium";
+	src: url("./assets/fonts/poppins-medium-webfont.woff2") format("woff2");
+	font-weight: 500;
+	font-style: normal;
+	font-display: swap;
+}
 
 @theme {
 	--font-poppins: "Poppins";
 	--font-poppins-extrabold: "Poppins-extrabold";
 	--font-poppins-bold: "Poppins-bold";
-	--color-accent: var(--color-blue-600);
-	--color-accent: var(--color-white);
+	--font-poppins-medium: "Poppins-medium";
+	--color-accent: var(--color-blue-500);
+	--animate-drop-out: drop-fade-out 0.2s ease-out;
+	--animate-rise-in: rise-fade-in 0.2s ease-in;
+}
+
+@keyframes drop-fade-out {
+	from {
+		display: block;
+		opacity: 1;
+		transform: translateY(0);
+	}
+
+	to {
+		opacity: 0;
+		transform: translateY(50px);
+		display: hidden;
+	}
+}
+@keyframes rise-fade-in {
+	to {
+		display: block;
+		opacity: 1;
+		transform: translateY(0);
+	}
+
+	from {
+		opacity: 0;
+		transform: translateY(50px);
+		display: hidden;
+	}
 }
 
 body {

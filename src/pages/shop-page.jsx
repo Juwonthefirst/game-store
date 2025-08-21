@@ -1,25 +1,1 @@
-import ItemCard from "../components/item-card.jsx";
-import { useGameStore } from "../hooks/useGameStore.js";
-import { useEffect } from "react";
-
-const ShopPage = () => {
-	const gamestore = useGameStore();
-    useEffect(() => {
-        window.addEventListener("scroll", (event) => {
-            
-        })
-        
-        return () => window.removeEventListener("scroll")
-    }, [])
-	return (
-		<div className="flex flex-col gap-20">
-			{gamestore.games.map((game) => {
-				const price = (Math.random() * 80 + 20).toFixed(2);
-				return <ItemCard key={game.id} {...game} price={price} />;
-			})}
-			{gamestore.isFetching && <p>Loading...</p>}
-		</div>
-	);
-};
-
-export default ShopPage;
+import ItemCard from "../components/item-card.jsx";import { useGameStore } from "../hooks/useGameStore.js";import loadingLoop from '../assets/icons/loop.svg';import { useOutletContext } from "react-router";const ShopPage = () => {    const { className } = useOutletContext()	const gamestore = useGameStore();		const onScrollBottom = (event) => {	    const shopePageDiv = event.target	    const scrollDistanceToBottom = shopePageDiv.scrollHeight - shopePageDiv.scrollTop - shopePageDiv.clientHeight	    //if(scrollDistanceToBottom < 500) gamestore.getMoreGames()	    //if(scrollDistanceToBottom < 500) alert("fetch more here")	}		return (		<div className={"flex flex-col gap-20 items-center justify-center " + className} onScroll={(event) => onScrollBottom(event)}>			{gamestore.games.map((game) => {				return <ItemCard key={game.id} {...game} onAddToCart={(quantity) => gamestore.addToCheckout(game, quantity)} />;			})}			{gamestore.isFetching && <img className={gamestore.games? "" :"h-12 w-12"} src={loadingLoop}/>}		</div>	);};export default ShopPage;
