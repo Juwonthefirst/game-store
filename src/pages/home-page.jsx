@@ -1,11 +1,33 @@
-import viteLogo from "/vite.svg";
+import { useOutletContext } from "react-router";
+import apexImage from "../assets/images/apex.jpg";
+import borderlandImage from "../assets/images/borderland.jpg";
+import knightImage from "../assets/images/knight.jpg";
+import rdrImage from "../assets/images/rdr.jpg";
+import witcherImage from "../assets/images/witcher.jpg";
+import elderScrollImage from "../assets/images/elder-scrolls.jpg";
+import ImageCarousel from "../components/image-carousel.jsx";
+import HeroSection from "../components/home/hero.jsx";
 
 const HomePage = () => {
+	const { className } = useOutletContext();
 	return (
-		<div className="flex flex-col items-center">
-			<div className="flex items-center">
-				<img src={viteLogo} />
-				<h2 className="text-2xl font-black">ite Games</h2>
+		<div className={"flex flex-col gap-8 items-center " + className}>
+			<HeroSection />
+			<div className="p-4 flex flex-col gap-4 w-full">
+				<p className="text-lg">
+					Browse through our collection of AAA games
+				</p>
+				<ImageCarousel
+					imagesURL={[
+						elderScrollImage,
+						borderlandImage,
+						knightImage,
+						rdrImage,
+						witcherImage,
+						knightImage,
+						elderScrollImage,
+					]}
+				/>
 			</div>
 		</div>
 	);

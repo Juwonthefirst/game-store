@@ -50,7 +50,6 @@ export const useGameStore = () => {
 	const getMoreGames = () => {
 		if (state.isFetching) return;
 		let totalPages = 100;
-		//alert(JSON.stringify(state));
 		if (state.fetchedPages.size + 1 >= totalPages) return;
 		let newRandomPage;
 		do {

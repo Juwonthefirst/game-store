@@ -26,7 +26,7 @@ const QuantityControls = ({ className, quantity, setQuantity }) => {
 				-
 			</button>
 			<input
-				className="px-2 py-1 w-4/5 focus:border-2 focus:bg-accent/10 border-accent outline-0 rounded-lg text-center"
+				className="px-2 py-1 w-3/5 focus:border-2 focus:bg-accent/10 border-accent outline-0 rounded-lg text-center"
 				type="number"
 				onChange={onInputChange}
 				value={quantity}

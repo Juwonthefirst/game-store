@@ -1,48 +1,52 @@
-import { ShoppingCart, Home, Store } from "lucide-react";
 import { Link } from "react-router";
 import { useState } from "react";
+import viteLogo from "/vite.svg";
+
 const pathToIndexMap = {
-	home: 1,
 	shop: 2,
 	cart: 3,
 };
 
 const NavBar = () => {
 	const currentPath = location.pathname.split("/");
-
-	const [currentPage, setCurrentPage] = useState(pathToIndexMap[currentPath]);
+	const currentPathIndex = pathToIndexMap[currentPath[1]] || 1;
+	const [currentPage, setCurrentPage] = useState(currentPathIndex);
 	const className =
-		"flex flex-col p-2 rounded-full gap-1 items-center data-[iscurrent=true]:text-accent data-[iscurrent=true]:scale-110";
+		"p-2 rounded-full items-center data-[iscurrent=true]:text-accent data-[iscurrent=true]:scale-110";
 	return (
-		<nav className="h-14 transition-all duration-300 ease-in px-6 py-1.5 flex justify-between items-center bg-black z-10 text-xs">
-			<Link
-				className={className}
-				to="/"
-				data-iscurrent={currentPage === 1}
-				onClick={() => setCurrentPage(1)}
-			>
-				<Home />
-				<p>Home</p>
-			</Link>
-			<Link
-				className={className}
-				to="/shop"
-				data-iscurrent={currentPage === 2}
-				onClick={() => setCurrentPage(2)}
-			>
-				<Store />
-				<p>Shop</p>
-			</Link>
-			<Link
-				className={className}
-				to="/cart"
-				data-iscurrent={currentPage === 3}
-				onClick={() => setCurrentPage(3)}
-			>
-				<ShoppingCart />
-				<p>Cart</p>
-			</Link>
-		</nav>
+		<div className="fixed flex items-center justify-between top-0 left-0 z-10 w-full px-6 py-1 backdrop-blur-md backdrop-saturate-150">
+			<div className="flex">
+				<img width={24} height={24} src={viteLogo} />
+				<p></p>
+			</div>
+
+			<nav className="flex items-center text-sm gap-4">
+				<Link
+					className={className}
+					to="/"
+					data-iscurrent={currentPage === 1}
+					onClick={() => setCurrentPage(1)}
+				>
+					<p>Home</p>
+				</Link>
+				<Link
+					className={className}
+					to="shop"
+					data-iscurrent={currentPage === 2}
+					onClick={() => setCurrentPage(2)}
+				>
+					<p>Shop</p>
+				</Link>
+				<Link
+					className={className}
+					to="cart"
+					data-iscurrent={currentPage === 3}
+					onClick={() => setCurrentPage(3)}
+				>
+					<p>Cart</p>
+				</Link>
+			</nav>
+		</div>
 	);
 };
 

@@ -6,13 +6,12 @@ import SearchBar from "../components/search-bar.jsx";
 const Layout = () => {
 	return (
 		<>
+			<NavBar />
 			<Outlet
 				context={{
-					className:
-						"h-[calc(100dvh-56px)] overflow-auto overscroll-contain",
+					className: "py-12 overflow-x-hidden overscroll-contain",
 				}}
 			/>
-			<NavBar />
 		</>
 	);
 };
