@@ -27,8 +27,6 @@ const SearchBar = ({ setSearchResult }) => {
 					}}
 				/>
 			)}
-			
-			{}
 		</div>
 	);
 };

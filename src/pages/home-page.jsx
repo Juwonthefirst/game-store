@@ -13,7 +13,11 @@ const HomePage = () => {
 	return (
 		<div className={"flex flex-col gap-8 items-center " + className}>
 			<HeroSection />
-			<div className="p-4 flex flex-col gap-4 w-full">
+			<div className="relative p-4 flex flex-col gap-4 w-full ">
+				<img
+					src={knightImage}
+					className="absolute top-1/4 left-0 z-[-1] w-full h-full object-cover blur-md saturate-150"
+				/>
 				<p className="text-lg">
 					Browse through our collection of AAA games
 				</p>

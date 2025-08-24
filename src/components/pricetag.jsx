@@ -10,14 +10,14 @@ const PriceTag = ({ price, onAddToCart }) => {
 			<p className="text-xl font-poppins-medium">
 				${(price * quantity).toFixed(2)}
 			</p>
-			<div className="w-4/5 flex gap-4">
+			<div className="w-3/5 flex gap-4">
 				<QuantityControls
-					className="w-1/2"
+					className="w-2/3"
 					quantity={quantity}
 					setQuantity={setQuantity}
 				/>
 				<button
-					className="border-green-500 rounded-full transition-all duration-300 border-1 active:bg-green-500/20 text-green-500 text-xs"
+					className=" transition-all duration-300 text-green-500 text-sm active:animate-pulse"
 					onClick={() => onAddToCart(quantity)}
 				>
 					Add to cart

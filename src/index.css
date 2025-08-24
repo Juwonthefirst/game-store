@@ -28,13 +28,21 @@
 	font-style: normal;
 	font-display: swap;
 }
+@font-face {
+	font-family: "Bangers";
+	src: url("./assets/fonts/bangers-regular-webfont.woff2") format("woff2");
+	font-weight: 400;
+	font-style: normal;
+	font-display: swap;
+}
 
 @theme {
 	--font-poppins: "Poppins";
+	--font-bangers: "Bangers";
 	--font-poppins-extrabold: "Poppins-extrabold";
 	--font-poppins-bold: "Poppins-bold";
 	--font-poppins-medium: "Poppins-medium";
-	--color-accent: var(--color-blue-500);
+	--color-accent: var(--color-violet-600);
 	--animate-drop-out: drop-fade-out 0.2s ease-out;
 	--animate-rise-in: rise-fade-in 0.2s ease-in;
 }

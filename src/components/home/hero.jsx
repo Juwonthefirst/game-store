@@ -12,14 +12,16 @@ const HeroSection = () => {
 			<div className="flex items-center mb-2">
 				<img src={viteLogo} />
 				{/* add a different font for the name */}
-				<h2 className="text-2xl font-poppins-extrabold">Vite Games</h2>
+				<h2 className="text-4xl font-bangers mt-1">Vite Games</h2>
 			</div>
-			<p className="w-1/2 text-sm">The game store for gamers by gamers</p>
+			<p className="w-2/5 text-sm font-poppins-medium">
+				The game store for gamers by gamers
+			</p>
 			<Link
-				className="absolute bottom-6 border-2 border-accent bg-accent/20 py-1 px-3 rounded-xl active:bg-accent"
+				className="absolute bottom-6 border-2 border-accent bg-accent/30 py-1 px-3 rounded-xl active:bg-accent font-bangers"
 				to="shop"
 			>
-				Browse
+				Shop now
 			</Link>
 		</div>
 	);
