@@ -3,11 +3,14 @@ import ImageCarousel from "../components/home/image-carousel.jsx";
 import HeroSection from "../components/home/hero.jsx";
 import CustomerCareSection from "../components/home/customer-care-section.jsx";
 import GameLibrarySection from "../components/home/game-library-section.jsx";
+import SecurePaymentSection from "../components/home/secure-payment-section.jsx";
 import SlideInCard from "../components/home/slide-in-card.jsx";
 import InfoSection from "../components/home/info-section.jsx";
+import { Link } from "react-router";
 
 const HomePage = () => {
 	const { className } = useOutletContext();
+
 	return (
 		<main className={className + " flex flex-col items-center h-auto"}>
 			<HeroSection />
@@ -20,16 +23,19 @@ const HomePage = () => {
 
 			<GameLibrarySection />
 			<CustomerCareSection />
-			<InfoSection heading="Secure payments" className="bg-black">
-				<p>
-					Whether you’re stacking V-Bucks in Fortnite, loading up on
-					COD Points, or grabbing gear fit for the frontier in Red
-					Dead Redemption — your payments stay locked down tighter
-					than a vault. With military-grade encryption guarding every
-					transaction, your loot is always safe. Game on, spend
-					fearless.
+			<SecurePaymentSection />
+			<div className="p-4 flex flex-col items-center gap-3">
+				<p className=" text-sm">
+					so Jump in and let up help you have the best gaming
+					experience ever.
 				</p>
-			</InfoSection>
+				<Link
+					className="w-fit border-2 border-accent bg-accent/40 py-1 px-4 rounded-xl active:bg-accent font-bangers text-lg self-center"
+					to="shop"
+				>
+					Shop now
+				</Link>
+			</div>
 		</main>
 	);
 };
