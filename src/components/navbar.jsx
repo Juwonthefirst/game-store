@@ -5,7 +5,7 @@ const NavBar = () => {
 	const location = useLocation();
 	const currentPage = location.pathname;
 	const className =
-		"p-2 rounded-full items-center data-[iscurrent=true]:text-accent data-[iscurrent=true]:scale-125";
+		"p-2 rounded-full items-center data-[iscurrent=true]:text-accent-light data-[iscurrent=true]:scale-125";
 	return (
 		<div className="fixed flex items-center justify-between top-0 left-0 z-10 w-full px-6 py-1 backdrop-blur-md backdrop-saturate-150">
 			<div className="flex">

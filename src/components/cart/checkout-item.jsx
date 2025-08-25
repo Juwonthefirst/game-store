@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import QuantityControls from "./quantity-control.jsx";
+import QuantityControls from "../quantity-control.jsx";
 
 const CheckoutItem = ({
 	name,

@@ -9,7 +9,8 @@ const Layout = () => {
 			<NavBar />
 			<Outlet
 				context={{
-					className: "py-12 overflow-x-hidden",
+					className:
+						"pt-12 h-[100dvh] overflow-x-hidden overflow-y-auto",
 				}}
 			/>
 		</>

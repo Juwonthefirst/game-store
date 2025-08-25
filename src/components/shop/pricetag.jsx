@@ -1,6 +1,6 @@
 import { useState } from "react";
-import IconButton from "./icon-button.jsx";
-import QuantityControls from "./quantity-control.jsx";
+import IconButton from "../icon-button.jsx";
+import QuantityControls from "../quantity-control.jsx";
 
 const PriceTag = ({ price, onAddToCart }) => {
 	const [quantity, setQuantity] = useState(1);

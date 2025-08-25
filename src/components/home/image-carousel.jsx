@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { motion } from "motion/react";
 
 const ImageCarousel = ({ imagesURL }) => {
 	const [currentImageId, setCurrentImageId] = useState(2);
@@ -53,7 +54,7 @@ const ImageCarousel = ({ imagesURL }) => {
 							className="w-full h-full object-cover rounded-xl"
 							src={imageURL}
 						/>
-						{isMain && "Borderland" }
+						{isMain && "Borderland"}
 					</div>
 				);
 			})}

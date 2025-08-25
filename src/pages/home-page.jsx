@@ -1,39 +1,36 @@
 import { useOutletContext } from "react-router";
-import apexImage from "../assets/images/apex.jpg";
-import borderlandImage from "../assets/images/borderland.jpg";
-import knightImage from "../assets/images/knight.jpg";
-import rdrImage from "../assets/images/rdr.jpg";
-import witcherImage from "../assets/images/witcher.jpg";
-import elderScrollImage from "../assets/images/elder-scrolls.jpg";
-import ImageCarousel from "../components/image-carousel.jsx";
+import ImageCarousel from "../components/home/image-carousel.jsx";
 import HeroSection from "../components/home/hero.jsx";
+import CustomerCareSection from "../components/home/customer-care-section.jsx";
+import GameLibrarySection from "../components/home/game-library-section.jsx";
+import SlideInCard from "../components/home/slide-in-card.jsx";
+import InfoSection from "../components/home/info-section.jsx";
 
 const HomePage = () => {
 	const { className } = useOutletContext();
 	return (
-		<div className={"flex flex-col gap-8 items-center " + className}>
+		<main className={className + " flex flex-col items-center h-auto"}>
 			<HeroSection />
-			<div className="relative p-4 flex flex-col gap-4 w-full ">
-				<img
-					src={knightImage}
-					className="absolute top-1/4 left-0 z-[-1] w-full h-full object-cover blur-md saturate-150"
-				/>
-				<p className="text-lg">
-					Browse through our collection of AAA games
+			<h2 className="text-2xl font-poppins-bold mt-24 mb-6">
+				Explore{" "}
+				<span className="font-bangers text-accent-light text-3xl">
+					Vite Games
+				</span>
+			</h2>
+
+			<GameLibrarySection />
+			<CustomerCareSection />
+			<InfoSection heading="Secure payments" className="bg-black">
+				<p>
+					Whether you’re stacking V-Bucks in Fortnite, loading up on
+					COD Points, or grabbing gear fit for the frontier in Red
+					Dead Redemption — your payments stay locked down tighter
+					than a vault. With military-grade encryption guarding every
+					transaction, your loot is always safe. Game on, spend
+					fearless.
 				</p>
-				<ImageCarousel
-					imagesURL={[
-						elderScrollImage,
-						borderlandImage,
-						knightImage,
-						rdrImage,
-						witcherImage,
-						knightImage,
-						elderScrollImage,
-					]}
-				/>
-			</div>
-		</div>
+			</InfoSection>
+		</main>
 	);
 };
 

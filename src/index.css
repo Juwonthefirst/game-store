@@ -43,6 +43,7 @@
 	--font-poppins-bold: "Poppins-bold";
 	--font-poppins-medium: "Poppins-medium";
 	--color-accent: var(--color-violet-600);
+	--color-accent-light: var(--color-violet-400);
 	--animate-drop-out: drop-fade-out 0.2s ease-out;
 	--animate-rise-in: rise-fade-in 0.2s ease-in;
 }

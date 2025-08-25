@@ -1,5 +1,5 @@
 import { useGameStore } from "../hooks/useGameStore.js";
-import CheckoutItem from "../components/checkout-item.jsx";
+import CheckoutItem from "../components/cart/checkout-item.jsx";
 import { useOutletContext } from "react-router";
 
 const CheckoutPage = () => {

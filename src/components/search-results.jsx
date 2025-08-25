@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useGameStore } from "../hooks/useGameStore.js";
-import ItemCard from "../components/item-card.jsx";
+import ItemCard from "../components/shop/item-card.jsx";
 
 const SearchResults = ({ searchResult }) => {
 	const { addToCheckout } = useGameStore();
