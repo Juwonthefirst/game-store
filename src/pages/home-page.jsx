@@ -1,5 +1,4 @@
 import { useOutletContext } from "react-router";
-import ImageCarousel from "../components/home/image-carousel.jsx";
 import HeroSection from "../components/home/hero.jsx";
 import CustomerCareSection from "../components/home/customer-care-section.jsx";
 import GameLibrarySection from "../components/home/game-library-section.jsx";
@@ -7,7 +6,6 @@ import SecurePaymentSection from "../components/home/secure-payment-section.jsx"
 import SlideInCard from "../components/home/slide-in-card.jsx";
 import InfoSection from "../components/home/info-section.jsx";
 import { Link } from "react-router";
-import { Github } from "lucide-react";
 
 const HomePage = () => {
 	const { className } = useOutletContext();
@@ -39,14 +37,10 @@ const HomePage = () => {
 					</Link>
 				</div>
 			</main>
-			<footer className="">
-				<div>
-					<Github />
-					<p>@juwonthefirst</p>
-				</div>
-				<div>
+			<footer className="flex flex-col gap-2 bg-neutral-800 p-10 items-center">
+				<div className="flex gap-1">
 					<img />
-					<p>Powdered by rawg api</p>
+					<p>Powdered by Rawg</p>
 				</div>
 			</footer>
 		</div>

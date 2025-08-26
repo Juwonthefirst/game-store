@@ -25,4 +25,4 @@ dist-ssr
 *.sw?
 
 #personal files
-#image-carousel.jsx
+image-carousel.jsx
