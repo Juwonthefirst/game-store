@@ -1,20 +1,8 @@
 import { motion } from "motion/react";
 
-const SlideInCard = ({ bgImg, from, text, className, children }) => {
+const SlideInCard = ({ bgImg, from, text, className }) => {
 	const isLeft = from === "left";
 	const x = 300 * (isLeft ? -1 : 1);
-	if (children)
-		return (
-			<motion.div
-				initial={{ x }}
-				whileInView={{ x: 0 }}
-				layout
-				transition={{ duration: 0.4 }}
-				className={className}
-			>
-				{children}
-			</motion.div>
-		);
 	return (
 		<motion.div
 			initial={{ x }}
@@ -26,7 +14,7 @@ const SlideInCard = ({ bgImg, from, text, className, children }) => {
 			<img src={bgImg} className="w-full h-full object-cover " />
 			<p
 				className={
-					"p-2 w-full h-full bg-black/40 absolute top-0 left-0 font-poppins-extrabold text-3xl " +
+					"p-2 w-full h-full bg-black/30 absolute top-0 left-0 font-poppins-extrabold text-3xl " +
 					(isLeft ? "text-left " : "text-right ") +
 					className
 				}

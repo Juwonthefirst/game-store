@@ -6,8 +6,56 @@ import knightImage from "../../assets/images/knight.jpg";
 import rdrImage from "../../assets/images/rdr.jpg";
 import witcherImage from "../../assets/images/witcher.jpg";
 import elderScrollImage from "../../assets/images/elder-scrolls.jpg";
+import eldenRingImage from "../../assets/images/elden-ring.jpg";
+import fifaImage from "../../assets/images/fifa.jpg";
+import minecraftImage from "../../assets/images/minecraft.jpg";
+import codImage from "../../assets/images/cod.jpg";
 
 const GameLibrarySection = () => {
+	const genreData = [
+		{
+			genre: "Adventure",
+			bgImg: rdrImage,
+			color: "text-red-400",
+		},
+
+		{
+			genre: "Fantasy",
+			bgImg: eldenRingImage,
+			color: "text-green-700",
+		},
+
+		{
+			genre: "Sport",
+			bgImg: fifaImage,
+			color: "text-sky-400",
+		},
+
+		{
+			genre: "Survival",
+			bgImg: minecraftImage,
+			color: "text-green-500",
+		},
+
+		{
+			genre: "RPG",
+			bgImg: borderlandImage,
+			color: "text-orange-400",
+		},
+
+		{
+			genre: "Indie",
+			bgImg: knightImage,
+			color: "text-accent-light",
+		},
+
+		{
+			genre: "Shooter",
+			bgImg: codImage,
+			color: "text-white",
+		},
+	];
+
 	return (
 		<InfoSection
 			heading="Large game library"
@@ -22,36 +70,15 @@ const GameLibrarySection = () => {
 				of selections just for you:
 			</p>
 			<div className="flex flex-col gap-4">
-				<SlideInCard
-					bgImg={knightImage}
-					text="Fantasy"
-					from="left"
-					className={"text-accent-light"}
-				/>
-				<SlideInCard
-					bgImg={elderScrollImage}
-					text="Adventure"
-					from="right"
-					className={"text-sky-500"}
-				/>
-				<SlideInCard
-					bgImg={borderlandImage}
-					text="Action"
-					from="left"
-					className={"text-orange-500"}
-				/>
-				<SlideInCard
-					bgImg={rdrImage}
-					text="Role-play"
-					from="right"
-					className={"text-red-500"}
-				/>
-				<SlideInCard
-					bgImg={witcherImage}
-					text="Action"
-					from="left"
-					className={"text-gray-800"}
-				/>
+				{genreData.map((genre, index) => (
+					<SlideInCard
+						key={index}
+						bgImg={genre.bgImg}
+						text={genre.genre}
+						from={index % 2 === 0 ? "left" : "right"}
+						className={genre.color}
+					/>
+				))}
 			</div>
 			<p>We don't judge, all for you</p>
 		</InfoSection>
