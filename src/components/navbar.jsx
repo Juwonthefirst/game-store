@@ -1,43 +1,51 @@
-import { Link, useLocation } from "react-router";
-import viteLogo from "/vite.svg";
+"use client";
+
+import Link from "next/link";
+import { usePathname } from "next/navigation";
+import Image from "next/image";
+import { bangers } from "@/utils/fonts";
 
 const NavBar = () => {
-	const location = useLocation();
-	const currentPage = location.pathname;
-	const className =
-		"p-2 rounded-full items-center data-[iscurrent=true]:text-accent-light data-[iscurrent=true]:scale-125";
-	return (
-		<div className="fixed flex items-center justify-between top-0 left-0 z-10 w-full px-6 py-1 backdrop-blur-md backdrop-saturate-150">
-			<div className="flex">
-				<img width={24} height={24} src={viteLogo} />
-				<p></p>
-			</div>
+  const location = usePathname();
+  const currentPage = location.split("/")[1] || "/";
+  const className =
+    "p-2 rounded-full items-center data-[iscurrent=true]:text-accent-light data-[iscurrent=true]:scale-125";
+  return (
+    <div className="fixed flex items-center justify-between top-0 left-0 z-10 w-full px-6 py-1 backdrop-blur-md backdrop-saturate-150">
+      <div className="flex gap-1">
+        <Image width={24} height={24} src={"/vite.svg"} alt="vite games logo" />
+        <p
+          className={`${bangers.className} hidden md:block text-lg lg:text-xl text-shadow-accent text-shadow-xs`}
+        >
+          Vite Games
+        </p>
+      </div>
 
-			<nav className="flex items-center text-sm gap-4">
-				<Link
-					className={className}
-					to="/"
-					data-iscurrent={currentPage === "/"}
-				>
-					<p>Home</p>
-				</Link>
-				<Link
-					className={className}
-					to="shop"
-					data-iscurrent={currentPage === "/shop"}
-				>
-					<p>Shop</p>
-				</Link>
-				<Link
-					className={className}
-					to="cart"
-					data-iscurrent={currentPage === "/cart"}
-				>
-					<p>Cart</p>
-				</Link>
-			</nav>
-		</div>
-	);
+      <nav className="flex items-center text-sm  gap-4 *:hover:text-accent-light">
+        <Link
+          className={className}
+          href="/"
+          data-iscurrent={currentPage === "/"}
+        >
+          <p>Home</p>
+        </Link>
+        <Link
+          className={className}
+          href="shop"
+          data-iscurrent={currentPage === "shop"}
+        >
+          <p>Shop</p>
+        </Link>
+        <Link
+          className={className}
+          href="cart"
+          data-iscurrent={currentPage === "cart"}
+        >
+          <p>Cart</p>
+        </Link>
+      </nav>
+    </div>
+  );
 };
 
 export default NavBar;

@@ -1,1 +1,102 @@
-import { useState } from "react";import IconButton from "../icon-button.jsx";import PriceTag from "./pricetag.jsx"import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";import {	faApple,	faPlaystation,	faXbox,	faWindows,	faAndroid,	faLinux,} from "@fortawesome/free-brands-svg-icons";import nintendoIcon from "../../assets/icons/nintendo.svg";const platformIconMap = {	PC: faWindows,	Linux: faLinux,	Xbox: faXbox,	Android: faAndroid,	PlayStation: faPlaystation,	"Apple Macintosh": faApple,};const ItemCard = ({	name,	background_image,	short_screenshots,	parent_platforms,	price,	onAddToCart}) => {    const [detailsHidden, setDetailsHidden] = useState(false)	const [imageUrlId, setImageUrlId] = useState(0);	return (		<div className="hover:scale-125 transition-transform duration-300">			<div className="group flex relative h-72 overflow-hidden data-[detailshidden=false]:bg-black/30" onClick={() => setDetailsHidden(!detailsHidden)} data-detailshidden={detailsHidden}>				<IconButton					className="absolute left-0 top-1/3 text-accent p-2 z-[1]"					iconName={"prev"}					onClick={(event) => {					    event.stopPropagation()					setImageUrlId(Math.max(0, imageUrlId - 1))}					}				/>				<img					className="absolute object-cover w-full h-full z-[-1]"					src={						short_screenshots[imageUrlId]?.image || background_image					}					loading="lazy"				/>				<IconButton					className="absolute right-0 top-1/3 text-accent p-2 z-[1]"					iconName={"next"}					onClick={(event) =>{					    event.stopPropagation()						setImageUrlId(							Math.min(								short_screenshots.length - 1,								imageUrlId + 1							)						)					}					}				/>				<div className="p-1 rounded-2xl absolute bottom-8 left-[calc(50%-48px)] gap-1 bg-black/30 hidden group-data-[detailshidden=true]:inline-flex items-center">				    {				        short_screenshots.map((_, index) => {				            const className = "p-1 rounded-full bg-white/10 data-current:bg-white"				            return (index === imageUrlId)? <div data-current key={index} className={className}></div>:  <div key={index} className={className}></div>				        })				    }				</div>				<div className=" absolute left-0 bottom-0 pl-10 pb-2 w-2/3 group-data-[detailshidden=true]:animate-drop-out group-data-[detailshidden=true]:hidden group-data-[detailshidden=false]:animate-rise-in">					<h2 className="text-2xl font-poppins-bold mb-1.5 line-clamp-3">						{name}					</h2>					<div className="flex mb-4 items-center gap-1">						{parent_platforms.map((platform, index) => {						    const platformName = platform.platform.name						    return (platformName === "Nintendo")? <img key={index} src={nintendoIcon} /> : <FontAwesomeIcon key={index} icon={platformIconMap[platformName]} />						})}					</div>				</div>			</div>			<PriceTag price={price} onAddToCart={onAddToCart}/>		</div>	);};export default ItemCard;
+"use client";
+
+import { useState } from "react";
+import IconButton from "../icon-button.jsx";
+import PriceTag from "./pricetag.jsx";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+  faApple,
+  faPlaystation,
+  faXbox,
+  faWindows,
+  faAndroid,
+  faLinux,
+} from "@fortawesome/free-brands-svg-icons";
+import nintendoIcon from "@/assets/icons/nintendo.svg";
+import Image from "next/image.js";
+
+const platformIconMap = {
+  PC: faWindows,
+  Linux: faLinux,
+  Xbox: faXbox,
+  Android: faAndroid,
+  PlayStation: faPlaystation,
+  "Apple Macintosh": faApple,
+};
+
+const ItemCard = ({
+  name,
+  background_image,
+  short_screenshots,
+  parent_platforms,
+  price,
+  onAddToCart,
+}) => {
+  const [detailsHidden, setDetailsHidden] = useState(false);
+  const [imageUrlId, setImageUrlId] = useState(0);
+  return (
+    <div className="hover:scale-125 transition-transform duration-300">
+      <div
+        className="group flex relative h-72 overflow-hidden data-[detailshidden=false]:bg-black/30"
+        onClick={() => setDetailsHidden(!detailsHidden)}
+        data-detailshidden={detailsHidden}
+      >
+        <IconButton
+          className="absolute left-0 top-1/3 text-accent p-2 z-[1]"
+          iconName={"prev"}
+          onClick={(event) => {
+            event.stopPropagation();
+            setImageUrlId(Math.max(0, imageUrlId - 1));
+          }}
+        />
+        <Image
+          className="absolute object-cover w-full h-full z-[-1]"
+          src={short_screenshots[imageUrlId]?.image || background_image}
+          loading="lazy"
+          fill
+        />
+        <IconButton
+          className="absolute right-0 top-1/3 text-accent p-2 z-[1]"
+          iconName={"next"}
+          onClick={(event) => {
+            event.stopPropagation();
+            setImageUrlId(
+              Math.min(short_screenshots.length - 1, imageUrlId + 1)
+            );
+          }}
+        />
+        <div className="p-1 rounded-2xl absolute bottom-8 left-[calc(50%-48px)] gap-1 bg-black/30 hidden group-data-[detailshidden=true]:inline-flex items-center">
+          {short_screenshots.map((_, index) => {
+            const className =
+              "p-1 rounded-full bg-white/10 data-current:bg-white";
+            return index === imageUrlId ? (
+              <div data-current key={index} className={className}></div>
+            ) : (
+              <div key={index} className={className}></div>
+            );
+          })}
+        </div>
+        <div className=" absolute left-0 bottom-0 pl-10 pb-2 w-2/3 group-data-[detailshidden=true]:animate-drop-out group-data-[detailshidden=true]:hidden group-data-[detailshidden=false]:animate-rise-in">
+          <h2 className="text-2xl font-bold mb-1.5 line-clamp-3">{name}</h2>
+
+          <div className="flex mb-4 items-center gap-1">
+            {parent_platforms.map((platform, index) => {
+              const platformName = platform.platform.name;
+              return platformName === "Nintendo" ? (
+                <img key={index} src={nintendoIcon} />
+              ) : (
+                <FontAwesomeIcon
+                  key={index}
+                  icon={platformIconMap[platformName]}
+                />
+              );
+            })}
+          </div>
+        </div>
+      </div>
+      <PriceTag price={price} onAddToCart={onAddToCart} />
+    </div>
+  );
+};
+
+export default ItemCard;
