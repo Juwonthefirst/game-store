@@ -17,7 +17,7 @@ const ShopPage = () => {
 
   return (
     <div
-      className="flex flex-col gap-20 items-center pt-12 h-[100dvh] overflow-x-hidden overflow-y-auto"
+      className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-16 gap-y-20 items-center pt-12 h-[100dvh] overflow-x-hidden overflow-y-auto"
       onScroll={(event) => onScrollBottom(event)}
     >
       {gamestore.games.map((game) => {
@@ -30,6 +30,7 @@ const ShopPage = () => {
         );
       })}
       {gamestore.isFetching && <p>Loading...</p>}
+      {gamestore.fetchError && <p>{gamestore.fetchError}</p>}
     </div>
   );
 };

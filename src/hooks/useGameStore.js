@@ -15,11 +15,10 @@ export const useGameStore = () => {
     (async () => {
       try {
         const response = await fetch(
-          `https://api.rawg.io/api/games?key=${
-            import.meta.env.VITE_RAWG_KEY
-          }&page=${pageNumber}&pageSize=30`,
-          { signal }
+          `https://api.rawg.io/api/games?key=${process.env.NEXT_PUBLIC_RAWG_KEY}&page=${pageNumber}&pageSize=30`,
+          { signal, cache: "no-store" }
         );
+        console.log(response);
         const data = await response.json();
         if (response.status >= 400) throw new Error(JSON.stringify(data));
         else {

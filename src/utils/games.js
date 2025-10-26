@@ -1,1 +1,32 @@
-class GameStore {    #checkout	constructor() {		this.games = [];		this.#checkout = {};	}		get checkout(){	    return Object.values(this.#checkout)	}	addGames(games) {		for (let game of games) {			game.price = (Math.random() * 80 + 20).toFixed(2);			this.games.push(game);		}		console.log(this.games)	}	addToCheckout(game, quantity) {	    const gameCheckoutKey = game.name + game.id	    game.quantity = quantity		this.#checkout[gameCheckoutKey] = game	}		removeFromCheckout(game){	    const gameCheckoutKey = game.name + game.id	    this.#checkout[gameCheckoutKey] = undefined	}}export default new GameStore();
+class GameStore {
+  #checkout;
+  constructor() {
+    this.games = [];
+    this.#checkout = {};
+  }
+
+  get checkout() {
+    return Object.values(this.#checkout);
+  }
+
+  addGames(games) {
+    for (let game of games) {
+      game.price = (Math.random() * 80 + 20).toFixed(2);
+      this.games.push(game);
+    }
+    console.log(this.games);
+  }
+
+  addToCheckout(game, quantity) {
+    const gameCheckoutKey = game.name + game.id;
+    game.quantity = quantity;
+    this.#checkout[gameCheckoutKey] = game;
+  }
+
+  removeFromCheckout(game) {
+    const gameCheckoutKey = game.name + game.id;
+    this.#checkout[gameCheckoutKey] = undefined;
+  }
+}
+const gameStore = new GameStore();
+export default gameStore;

@@ -35,7 +35,7 @@ const ItemCard = ({
   const [detailsHidden, setDetailsHidden] = useState(false);
   const [imageUrlId, setImageUrlId] = useState(0);
   return (
-    <div className="hover:scale-125 transition-transform duration-300">
+    <div className="hover:scale-110 transition-transform duration-300">
       <div
         className="group flex relative h-72 overflow-hidden data-[detailshidden=false]:bg-black/30"
         onClick={() => setDetailsHidden(!detailsHidden)}
@@ -52,7 +52,7 @@ const ItemCard = ({
         <Image
           className="absolute object-cover w-full h-full z-[-1]"
           src={short_screenshots[imageUrlId]?.image || background_image}
-          loading="lazy"
+          alt={`${name} screenshot`}
           fill
         />
         <IconButton

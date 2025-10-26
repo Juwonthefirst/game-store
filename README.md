@@ -48,7 +48,7 @@ $ npm install
 4. Create a .env file and add your Rawg api key
 
 ```env
-API_KEY=<your api key here>
+NEXT_PUBLIC_RAWG_KEY=<your api key here>
 ```
 
 5. Now just run

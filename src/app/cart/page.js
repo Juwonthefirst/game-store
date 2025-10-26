@@ -10,7 +10,7 @@ const CheckoutPage = () => {
   };
 
   return (
-    <div className="pt-12 h-[100dvh] overflow-x-hidden overflow-y-auto flex flex-col gap-8 p-2">
+    <div className="pt-12 overflow-x-hidden overflow-y-auto grid grid-cols-1 md:grid-cols-2 gap-x-6 gap-y-8 p-2 h-fit">
       {gamestore.getCheckout().map((game) => {
         return (
           <CheckoutItem
