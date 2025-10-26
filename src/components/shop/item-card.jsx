@@ -53,7 +53,9 @@ const ItemCard = ({
           className="absolute object-cover w-full h-full z-[-1]"
           src={short_screenshots[imageUrlId]?.image || background_image}
           alt={`${name} screenshot`}
+          loading="lazy"
           fill
+          sizes="(max-width: 640) 100vw,(max-width: 746) 50vw,(max-width: 1024) 30vw"
         />
         <IconButton
           className="absolute right-0 top-1/3 text-accent p-2 z-[1]"
