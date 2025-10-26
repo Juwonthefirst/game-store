@@ -22,12 +22,6 @@ const HomePage = () => {
         <GameLibrarySection />
         <CustomerCareSection />
         <SecurePaymentSection />
-        <div className="p-4 flex flex-col items-center gap-3">
-          <p className=" text-sm">
-            so Jump in and let up help you have the best gaming experience ever.
-          </p>
-          <CtaButton />
-        </div>
       </main>
     </div>
   );

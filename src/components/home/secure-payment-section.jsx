@@ -23,7 +23,7 @@ const SecurePaymentSection = () => {
   ];
 
   return (
-    <Section className="bg-black">
+    <Section className="bg-black flex-col md:flex-row">
       <div>
         <Header>Secure payments</Header>
         <Body>

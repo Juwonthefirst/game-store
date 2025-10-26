@@ -1,10 +1,5 @@
 import { Section, Body, Header } from "./sematics.jsx";
-import {
-  CalendarClock,
-  BriefcaseMedical,
-  MessageSquare,
-  Zap,
-} from "lucide-react";
+import { CalendarClock, BriefcaseMedical, MessageSquare } from "lucide-react";
 
 const customerCareBenefits = [
   {

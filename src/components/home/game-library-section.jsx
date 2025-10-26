@@ -10,70 +10,28 @@ import eldenRingImage from "@/assets/images/elden-ring.jpg";
 import fifaImage from "@/assets/images/fifa.jpg";
 import minecraftImage from "@/assets/images/minecraft.jpg";
 import codImage from "@/assets/images/cod.jpg";
+
 import ImageCarousel from "./image-carousel.jsx";
 
 const GameLibrarySection = () => {
-  const genreData = [
-    {
-      genre: "Adventure",
-      bgImg: rdrImage,
-      color: "text-red-400",
-    },
-
-    {
-      genre: "Fantasy",
-      bgImg: eldenRingImage,
-      color: "text-green-700",
-    },
-
-    {
-      genre: "Sport",
-      bgImg: fifaImage,
-      color: "text-sky-400",
-    },
-
-    {
-      genre: "Survival",
-      bgImg: minecraftImage,
-      color: "text-green-500",
-    },
-
-    {
-      genre: "RPG",
-      bgImg: borderlandImage,
-      color: "text-orange-400",
-    },
-
-    {
-      genre: "Indie",
-      bgImg: knightImage,
-      color: "text-accent-light",
-    },
-
-    {
-      genre: "Shooter",
-      bgImg: codImage,
-      color: "text-white",
-    },
+  const imagesUrl = [
+    rdrImage,
+    eldenRingImage,
+    fifaImage,
+    minecraftImage,
+    borderlandImage,
+    knightImage,
+    codImage,
   ];
 
   const [currentImageId, setCurrentImageId] = useState(3);
   const direction = useRef(1);
 
-  let touchStartPoint;
-  const handleTouchStart = (event) => {
-    const touch = event.targetTouches[0];
-    touchStartPoint = touch.clientY;
-  };
-
-  const handleTouchEnd = (event) => {
-    const touch = event.changedTouches[0];
-    let touchEndPoint = touch.clientY;
-    let touchPointDifference = touchEndPoint - touchStartPoint;
-    if (touchPointDifference < -50) {
-      if (currentImageId >= imagesURL.length - 1) return;
+  const handleSwipe = (direction) => {
+    if (direction === "up" || direction === "right") {
+      if (currentImageId >= imagesUrl.length - 1) return;
       setCurrentImageId(currentImageId + 1);
-    } else if (touchPointDifference > 50) {
+    } else if (direction === "down" || direction === "left") {
       if (currentImageId <= 0) return;
       setCurrentImageId(currentImageId - 1);
     }
@@ -81,7 +39,7 @@ const GameLibrarySection = () => {
 
   useEffect(() => {
     if (currentImageId <= 0) direction.current = 1;
-    else if (currentImageId >= genreData.length - 1) direction.current = -1;
+    else if (currentImageId >= imagesUrl.length - 1) direction.current = -1;
     const timeoutkey = setTimeout(() => {
       setCurrentImageId(currentImageId + direction.current);
     }, 10000);
@@ -92,13 +50,12 @@ const GameLibrarySection = () => {
   }, [currentImageId]);
 
   return (
-    <Section className="flex-col-reverse md:flex-row items-center md:gap-10 bg-slate-200 text-black ">
+    <Section className="flex-col-reverse md:flex-row items-center gap-10 md:gap-6 bg-slate-200 text-black max-w-screen md:min-h-108 md:overflow-y-hidden">
       <ImageCarousel
         currentImageId={currentImageId}
         setCurrentImageId={setCurrentImageId}
-        handleTouchEnd={handleTouchEnd}
-        handleTouchStart={handleTouchStart}
-        genres={genreData}
+        handleSwipe={handleSwipe}
+        images={imagesUrl}
       />
       <div className="flex flex-col gap-4">
         <Header>Large game library</Header>
