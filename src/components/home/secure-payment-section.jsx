@@ -23,8 +23,8 @@ const SecurePaymentSection = () => {
   ];
 
   return (
-    <Section className="bg-black flex-col md:flex-row">
-      <div>
+    <Section className="bg-black flex-col items-center gap-4">
+      <div className="flex flex-col gap-4 sm:p-6">
         <Header>Secure payments</Header>
         <Body>
           Whether you’re stacking V-Bucks in Fortnite, grabing the latest COD
@@ -34,12 +34,12 @@ const SecurePaymentSection = () => {
           always safe. we offer payment options in:
         </Body>
       </div>
-      <div className=" grid grid-cols-2 gap-x-[-48px] gap-y-3 self-center">
+      <div className=" grid grid-cols-2 sm:grid-cols-4 gap-y-3 max-sm:self-center w-1/2  md:w-1/3 justify-center">
         {paymentIcons.map((icon, index) => (
-          <FontAwesomeIcon key={index} icon={icon} size="" />
+          <FontAwesomeIcon key={index} icon={icon} className="w-12 h-12 " />
         ))}
-        <div className="flex gap-1 justify-center items-center mb-4">
-          <Landmark />
+        <div className="flex sm:flex-col gap-1 justify-center items-center mb-4 text-xs">
+          <Landmark size={40} />
           <p>Bank transfer</p>
         </div>
       </div>

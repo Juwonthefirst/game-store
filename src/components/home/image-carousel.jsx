@@ -16,7 +16,7 @@ const HorizontalImageCarousel = ({
   const swipeSensor = new SwipeSensor("X", handleSwipe);
   return (
     <div
-      className="flex md:hidden gap-10 relative transition-transform duration-500 *:shrink-0 px-16 items-center"
+      className="flex sm:hidden gap-10 relative transition-transform duration-500 *:shrink-0 px-16 items-center"
       style={{
         transform: `translateX(calc(50% - ${
           currentImageId * (cardSize + cardGap) + containerPadding
@@ -67,7 +67,7 @@ const VerticalImageCarousel = ({
   const swipeSensor = new SwipeSensor("Y", handleSwipe);
   return (
     <div
-      className="hidden md:flex flex-col gap-12 min-w-3/5 scale-80 lg:scale-100 relative transition-transform duration-500 *:shrink-0 px-16 items-center "
+      className="hidden sm:flex flex-col gap-12 min-w-3/5 scale-70 md:scale-80 lg:scale-100 relative transition-transform duration-500 *:shrink-0 px-16 items-center "
       style={{
         transform: `translateY(calc(50% - ${
           currentImageId * (224 + 48) + 96

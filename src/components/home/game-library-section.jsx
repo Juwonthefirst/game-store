@@ -50,7 +50,7 @@ const GameLibrarySection = () => {
   }, [currentImageId]);
 
   return (
-    <Section className="flex-col-reverse md:flex-row items-center gap-10 md:gap-6 bg-slate-200 text-black max-w-screen md:min-h-108 md:overflow-y-hidden">
+    <Section className="flex-col-reverse sm:flex-row items-center gap-12 sm:gap-6 bg-slate-200 text-black max-w-screen sm:min-h-88 md:min-h-108 sm:overflow-y-hidden">
       <ImageCarousel
         currentImageId={currentImageId}
         setCurrentImageId={setCurrentImageId}
