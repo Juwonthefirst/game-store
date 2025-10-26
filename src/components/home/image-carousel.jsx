@@ -34,24 +34,21 @@ const HorizontalImageCarousel = ({
         if (isMain) className = "scale-120 opacity-100 shadow-2xl";
         if (isNextOrPrev) className = "opacity-60";
         return (
-          <div
+          <Image
             className={
-              "h-24 w-48 relative rounded-xl overflow-hidden transition-all duration-500" +
+              "object-cover rounded-xl overflow-hidden transition-all duration-500" +
               " " +
               className
             }
+            src={image}
+            alt="game image"
             key={index}
             onClick={() => {
               setCurrentImageId(index);
             }}
-          >
-            <Image
-              className="w-full h-full object-cover rounded-xl "
-              src={image}
-              alt="game image"
-              fill
-            />
-          </div>
+            height={96}
+            width={192}
+          />
         );
       })}
     </div>
@@ -101,6 +98,7 @@ const VerticalImageCarousel = ({
               src={image}
               alt="game image"
               fill
+              sizes="(max-width: 640px) 303px,(max-width: 768px) 346px, (max-width: 1024px) 432px"
             />
           </div>
         );

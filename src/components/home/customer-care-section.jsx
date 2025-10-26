@@ -26,7 +26,7 @@ const customerCareBenefits = [
 
 const CustomerCareSection = () => {
   return (
-    <Section className="bg-neutral-900 flex-col gap-6">
+    <Section className="bg-slate-200 text-black flex-col gap-6">
       <div className="flex flex-col gap-4">
         <Header>Customer care</Header>
         <Body className="mb-4">

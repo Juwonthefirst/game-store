@@ -50,7 +50,14 @@ const GameLibrarySection = () => {
   }, [currentImageId]);
 
   return (
-    <Section className="flex-col-reverse sm:flex-row items-center gap-12 sm:gap-6 bg-slate-200 text-black max-w-screen sm:min-h-88 md:min-h-108 sm:overflow-y-hidden">
+    <Section className="relative flex-col-reverse sm:flex-row items-center gap-12 sm:gap-6 text-white max-w-screen sm:min-h-88 md:min-h-108 sm:overflow-hidden">
+      <div
+        className="absolute -z-10 w-full h-full bg-cover bg-center transition-all duration-500"
+        style={{
+          backgroundImage: `url(${imagesUrl[currentImageId].src})`,
+          filter: "blur(24px) brightness(0.5)",
+        }}
+      ></div>
       <ImageCarousel
         currentImageId={currentImageId}
         setCurrentImageId={setCurrentImageId}
