@@ -19,7 +19,7 @@ const NavBar = () => {
       <div ref={glitch.ref} className="flex gap-1">
         <Image width={24} height={24} src={"/vite.svg"} alt="vite games logo" />
         <p
-          className={`${bangers.className} hidden md:block text-lg lg:text-xl text-shadow-accent text-shadow-xs`}
+          className={`${bangers.className} hidden md:block text-lg lg:text-xl`}
         >
           Vite Games
         </p>

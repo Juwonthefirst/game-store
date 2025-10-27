@@ -16,7 +16,7 @@ const HeroSection = () => {
 
       <div className="flex flex-col gap-2 md:gap-4 items-center text-center mb-4 md:mb-6 lg:mb-10 w-3/4">
         <Logo />
-        <p className="text-sm md:text-base lg:text-lg font-medium">
+        <p className="text-sm md:text-lg lg:text-xl font-semibold">
           The game store for gamers by gamers
         </p>
         <CtaButton />
