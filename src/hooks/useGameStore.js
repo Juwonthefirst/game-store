@@ -1,7 +1,6 @@
 import { useState, useEffect } from "react";
 import gamestore from "@/utils/games.js";
 
-export const dynamic = "force-dynamic";
 export const useGameStore = () => {
   const [state, setState] = useState({
     games: gamestore.games,
