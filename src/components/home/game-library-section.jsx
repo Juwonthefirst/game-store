@@ -42,7 +42,7 @@ const GameLibrarySection = () => {
     else if (currentImageId >= imagesUrl.length - 1) direction.current = -1;
     const timeoutkey = setTimeout(() => {
       setCurrentImageId(currentImageId + direction.current);
-    }, 10000);
+    }, 7000);
 
     return () => {
       clearTimeout(timeoutkey);
