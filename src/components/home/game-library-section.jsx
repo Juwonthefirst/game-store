@@ -12,6 +12,7 @@ import minecraftImage from "@/assets/images/minecraft.jpg";
 import codImage from "@/assets/images/cod.jpg";
 
 import ImageCarousel from "./image-carousel.jsx";
+import Image from "next/image.js";
 
 const GameLibrarySection = () => {
   const imagesUrl = [
@@ -51,13 +52,15 @@ const GameLibrarySection = () => {
 
   return (
     <Section className="relative flex-col-reverse sm:flex-row items-center gap-12 sm:gap-6 text-white max-w-screen sm:min-h-88 md:min-h-108 sm:overflow-hidden">
-      <div
-        className="absolute -z-20 w-full h-full bg-cover bg-center transition-all duration-700"
-        style={{
-          backgroundImage: `url(${imagesUrl[currentImageId].src})`,
-          filter: "blur(24px) brightness(0.4)",
-        }}
-      ></div>
+      <div className="absolute -z-20 w-full h-full">
+        <Image
+          src={imagesUrl[currentImageId]}
+          alt="backgroud image"
+          fill
+          sizes="100vw"
+          className="object-cover blur-xl brightness-40"
+        />
+      </div>
 
       <ImageCarousel
         currentImageId={currentImageId}
