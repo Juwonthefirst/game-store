@@ -85,7 +85,7 @@ const ItemCard = ({
             {parent_platforms.map((platform, index) => {
               const platformName = platform.platform.name;
               return platformName === "Nintendo" ? (
-                <img key={index} src={nintendoIcon} />
+                <Image key={index} src={nintendoIcon} width={24} height={24} />
               ) : (
                 <FontAwesomeIcon
                   key={index}
