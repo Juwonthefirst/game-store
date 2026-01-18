@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import gamestore from "@/utils/games.js";
 
+export const dynamic = "force-dynamic";
 export const useGameStore = () => {
   const [state, setState] = useState({
     games: gamestore.games,
@@ -16,9 +17,8 @@ export const useGameStore = () => {
       try {
         const response = await fetch(
           `https://api.rawg.io/api/games?key=${process.env.NEXT_PUBLIC_RAWG_KEY}&page=${pageNumber}&pageSize=30`,
-          { signal, cache: "no-store" }
+          { signal, cache: "no-store" },
         );
-        console.log(response);
         const data = await response.json();
         if (response.status >= 400) throw new Error(JSON.stringify(data));
         else {

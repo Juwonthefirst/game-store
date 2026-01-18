@@ -14,6 +14,9 @@ const ShopPage = () => {
       shopePageDiv.clientHeight;
     if (scrollDistanceToBottom < 500) gamestore.getMoreGames();
   };
+  if (gamestore.games.length === 0 && !gamestore.isFetching) {
+    return <p className="pt-12 mx-auto">Loading...</p>;
+  }
 
   return (
     <div
