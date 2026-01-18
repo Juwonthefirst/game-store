@@ -55,7 +55,7 @@ const GameLibrarySection = () => {
         className="absolute -z-20 w-full h-full bg-cover bg-center transition-all duration-700"
         style={{
           backgroundImage: `url(${imagesUrl[currentImageId].src})`,
-          filter: "blur(24px) brightness(0.25)",
+          filter: "blur(24px) brightness(0.4)",
         }}
       ></div>
 
