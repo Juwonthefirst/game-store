@@ -55,7 +55,7 @@ const ItemCard = ({
           alt={`${name} screenshot`}
           loading="lazy"
           fill
-          sizes="(max-width: 640) 100vw,(max-width: 746) 50vw,(max-width: 1024) 30vw"
+          sizes="(max-width: 640px) 100vw,(max-width: 746px) 50vw,(max-width: 1024px) 30vw"
         />
         <IconButton
           className="absolute right-0 top-1/3 text-accent p-2 z-[1]"
@@ -63,7 +63,7 @@ const ItemCard = ({
           onClick={(event) => {
             event.stopPropagation();
             setImageUrlId(
-              Math.min(short_screenshots.length - 1, imageUrlId + 1)
+              Math.min(short_screenshots.length - 1, imageUrlId + 1),
             );
           }}
         />
